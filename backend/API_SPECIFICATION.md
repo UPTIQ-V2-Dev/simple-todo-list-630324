@@ -25,6 +25,16 @@ model Token {
   user        User      @relation(fields: [userId], references: [id])
   userId      Int
 }
+
+model Todo {
+  id          Int      @id @default(autoincrement())
+  text        String
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+}
 ```
 
 ## Authentication Endpoints
